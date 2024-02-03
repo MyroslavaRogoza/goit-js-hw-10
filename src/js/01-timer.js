@@ -23,7 +23,7 @@ const options = {
       window.alert('Please choose a date in the future');
       btnStart.setAttribute('disabled', 'true');
     }
-    return (userSelectedDate = selectedDates[0]);
+    return userSelectedDate = selectedDates[0];
   },
 };
 
