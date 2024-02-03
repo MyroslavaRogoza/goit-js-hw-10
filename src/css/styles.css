@@ -13,6 +13,9 @@ p {
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Montserrat', sans-serif;
+}
 p:last-child {
   margin-bottom: 0;
 }
@@ -27,11 +30,74 @@ a {
   color: currentColor;
   text-decoration: none;
 }
-
+input,
+button {
+  font-family: inherit;
+  line-height: inherit;
+}
 button {
   cursor: pointer;
 }
-.timer{
+.timer {
   display: flex;
   gap: 24px;
+}
+#datetime-picker {
+  /* display: flex; */
+  padding: 8px 16px;
+  width: 272px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  margin-top: 20px;
+}
+
+#datetime-picker:hover {
+  border: 1px solid #000;
+}
+
+#datetime-picker:active {
+  border-color: #4e75ff;
+}
+
+.page-start-btn {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background-color: #4e75ff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+}
+.page-start-btn:hover {
+  background: #6c8cff;
+}
+
+.page-start-btn:disabled {
+  background-color: #cfcfcf;
+  color: #989898;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 400;
+  color: #2e2f42;
+}
+.value {
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+}
+.label {
+  font-size: 16px;
+  line-height: 1.5;
 }
