@@ -16,19 +16,21 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
+    console.log(selectedDates[0]);
     if (selectedDates[0] > new Date()) {
       btnStart.removeAttribute('disabled');
-          
     } else {
       window.alert('Please choose a date in the future');
       btnStart.setAttribute('disabled', 'true');
     }
-    return selectedDates[0];
+    return (userSelectedDate = selectedDates[0]);
   },
 };
+
 flatpickr(input, options);
-userSelectedDate = null || options.onClose();
+
 console.log(userSelectedDate);
+
 function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
@@ -48,25 +50,5 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-btnStart.addEventListener('click', onStartBtnClick);
+// btnStart.addEventListener('click', onStartBtnClick);
 
-function onStartBtnClick(futureDate) {
-  const currentTime = Date.now();
-  //   const diff= futureDate-currentTime;
-  //   console.log(futureDate);
-  const intervalId = setInterval(() => {
-    // const timeObj = convertMs(diff);
-    //  return timeObj;
-  }, 1000);
-}
-
-onStartBtnClick(userSelectedDate);
-
-/*
- const intervalId = setInterval((futureDate)=>{
-       
-    console.log(convertMs(futureDate - currentTime));
-    console.log(futureDate);
-
-},
-1000, userSelectedDate)*/
