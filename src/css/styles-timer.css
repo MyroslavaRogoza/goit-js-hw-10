@@ -1,49 +1,8 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-}
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Montserrat', sans-serif;
-}
-p:last-child {
-  margin-bottom: 0;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-a {
-  color: currentColor;
-  text-decoration: none;
-}
-input,
-button {
-  font-family: inherit;
-  line-height: inherit;
-}
-button {
-  cursor: pointer;
-}
 .timer {
   display: flex;
   gap: 24px;
 }
 #datetime-picker {
-  /* display: flex; */
   padding: 8px 16px;
   width: 272px;
   border: 1px solid #808080;

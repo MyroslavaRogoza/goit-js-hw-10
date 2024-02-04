@@ -1,0 +1,38 @@
+.form {
+  display: inline-flex;
+  flex-direction: column;
+}
+.form > label {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form > label > input {
+  padding: 8px 16px;
+  width: 360px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.form fieldset {
+  border-radius: 4px;
+  stroke-width: 1px;
+  stroke: #808080;
+  margin: 0;
+  /* padding: 24px 48px 8px 48px; */
+}
+
+fieldset input{
+    margin: 0;
+}
+fieldset label{
+    display: inline-flex;
+    gap: 8px;
+ 
+}
+fieldset{
+    display: flex;
+    justify-content: space-evenly;
+}
