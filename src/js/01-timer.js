@@ -1,7 +1,10 @@
-// Описаний в документації
 import flatpickr from 'flatpickr';
-// Додатковий імпорт стилів
 import 'flatpickr/dist/flatpickr.min.css';
+
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
+import error from '../img/Group.svg';
 
 const input = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('button[data-start]');
@@ -11,9 +14,7 @@ const hoursRemaining = document.querySelector('span[data-hours]');
 const minutesRemaining = document.querySelector('span[data-minutes]');
 const secondsRemaining = document.querySelector('span[data-seconds]');
 
-
 btnStart.classList.add('page-start-btn');
-
 
 btnStart.setAttribute('disabled', 'true');
 
@@ -25,15 +26,28 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    // userSelectedDate = selectedDates[0];
     if (selectedDates[0] > new Date()) {
       btnStart.removeAttribute('disabled');
       userSelectedDate = selectedDates[0];
     } else {
-      window.alert('Please choose a date in the future');
+      iziToast.show({
+        position: 'topRight',
+        theme: 'dark',
+        title: 'Error',
+        titleColor: '#fff',
+        titleSize: '16px',
+        titleLineHeight: ' 1.5',
+        message: 'Please choose a date in the future',
+        messageColor: '#fff',
+        messageSize: '16px',
+        messageLineHeight: '1.5',
+        backgroundColor: '#ef4040',
+        closeColor: '#fff',
+        iconUrl: error,
+        iconColor: '#fff',
+      });
       btnStart.setAttribute('disabled', 'true');
     }
-    // return (userSelectedDate = selectedDates[0]);
   },
 };
 
@@ -47,7 +61,7 @@ function convertMs(ms) {
   const day = hour * 24;
 
   // Remaining days
-  const days =  Math.floor(ms / day);
+  const days = Math.floor(ms / day);
   // Remaining hours
   const hours = Math.floor((ms % day) / hour);
   // Remaining minutes
@@ -60,17 +74,16 @@ function convertMs(ms) {
 
 let intervalId;
 
-function startTimer(finaltime) {
+function startTimer() {
   intervalId = setInterval(() => {
     const currentTime = Date.now();
     const diff = userSelectedDate - currentTime;
     if (diff <= 0) {
       stopTimer();
+    } else {
+      const timeObj = convertMs(diff);
+      tickTimer(timeObj);
     }
-    const timeObj = convertMs(diff);
-    tickTimer(timeObj);
-
-    // return timeObj;
   }, 1000);
 }
 
