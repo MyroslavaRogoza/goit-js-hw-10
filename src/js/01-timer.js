@@ -8,7 +8,6 @@ import error from '../img/Group.svg';
 
 const input = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('button[data-start]');
-const timer = document.querySelector('.timer');
 const daysRemaining = document.querySelector('span[data-days]');
 const hoursRemaining = document.querySelector('span[data-hours]');
 const minutesRemaining = document.querySelector('span[data-minutes]');
