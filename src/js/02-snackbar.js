@@ -1,4 +1,5 @@
 import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.querySelector('.form');
 const input = document.querySelector('input');
@@ -10,34 +11,36 @@ function onFormSubmit(evt) {
 
   const makePromise = delay => {
     return new Promise((resolve, reject) => {
-      setTimeout(delay => {
-        if (form.elements.state.value === 'fulfilled') {
-          resolve(delay);
-        } else if (form.elements.state.value === 'rejected') {
-          reject(delay);
-        }
-      }, delay, delay);
+      setTimeout(
+        delay => {
+          if (form.elements.state.value === 'fulfilled') {
+            resolve(delay);
+          } else if (form.elements.state.value === 'rejected') {
+            reject(delay);
+          }
+        },
+        delay,
+        delay,
+      );
     });
   };
-
   makePromise(delay)
     .then(delay =>
       iziToast.show({
         message: `✅ Fulfilled promise in ${delay}ms`,
         messageColor: '#fff',
         backgroundColor: '#59A10D',
+        position: 'topRight',
+        close: false,
       }),
     )
-    .catch(delay => console.log(delay));
+    .catch(delay =>
+      iziToast.show({
+        message: `❌ Rejected promise in ${delay}ms`,
+        messageColor: '#fff',
+        backgroundColor: '#ef4040',
+        position: 'topRight',
+        close: false,
+      }),
+    );
 }
-
-//`❌ Rejected promise in ${delay}ms`
-// flatpickr(input, options);
-//
-// input.addEventListener('input', inputHandler);
-// function inputHandler(evt){
-//     const inputNamber = evt.target.value;
-//     console.log(inputNamber);
-//     return inputHandler;
-// }
-// input.addEventListener('input', inputHandler);

@@ -16,23 +16,97 @@
   margin-bottom: 16px;
 }
 
-.form fieldset {
-  border-radius: 4px;
-  stroke-width: 1px;
-  stroke: #808080;
-  margin: 0;
-  /* padding: 24px 48px 8px 48px; */
+.form > label > input:hover {
+  border: 1px solid #000;
+  transition: border 300ms linear;
+}
+form > label > input:focus-visible {
+  border: 1px solid #4e75ff;
+  outline: #4e75ff;
+  transition: border 300ms linear;
 }
 
-fieldset input{
-    margin: 0;
+input[type='radio'],
+label {
+  cursor: pointer;
 }
-fieldset label{
-    display: inline-flex;
-    gap: 8px;
- 
+
+input[type='radio'] {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  appearance: none;
+  outline: none;
 }
-fieldset{
-    display: flex;
-    justify-content: space-evenly;
+
+input[type='radio']::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #4e75ff;
+}
+
+input[type='radio']:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #4e75ff;
+  transform: translate(-50%, -50%);
+  visibility: visible;
+}
+.form fieldset {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  margin: 0;
+  transition: border-color 300ms linear;
+}
+
+fieldset input {
+  margin: 0;
+}
+fieldset label {
+  display: inline-flex;
+  gap: 8px;
+}
+fieldset {
+  display: flex;
+  justify-content: space-evenly;
+}
+button {
+  border-radius: 8px;
+  padding: 8px 16px;
+  background-color: #4e75ff;
+  border: none;
+  display: inline-block;
+  margin-top: 24px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  transition: background-color 300ms linear;
+}
+label,
+legend {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+button:hover {
+  background-color: #6c8cff;
+}
+fieldset:focus-within {
+  border-color: #000;
 }
