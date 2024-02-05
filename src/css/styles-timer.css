@@ -13,14 +13,16 @@
   letter-spacing: 0.04em;
   color: #2e2f42;
   margin-top: 20px;
+  transition: border 300ms ease-in-out;
 }
 
 #datetime-picker:hover {
   border: 1px solid #000;
 }
 
-#datetime-picker:active {
+#datetime-picker:focus-visible {
   border-color: #4e75ff;
+  outline: none;
 }
 
 .page-start-btn {
@@ -34,6 +36,7 @@
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
+  transition: background-color 300ms ease-in-out;
 }
 .page-start-btn:hover {
   background: #6c8cff;
